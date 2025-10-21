@@ -1,4 +1,5 @@
 from textwrap import wrap
+
 read_file_path = input("Please input the file path here, it should look something like this: 'C:/Users/yourName/yourFolder/yourFile.txt' please note you MUST use forward slashes in your file path or else it will not work\n")
 write_file_path = "output.txt"
 final_content = ""
