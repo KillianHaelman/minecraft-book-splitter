@@ -2,8 +2,6 @@ import tkinter as tk
 from tkinter import filedialog
 from textwrap import wrap
 
-write_file_path = "output.txt"
-
 class ui:
     def __init__(self):
         self.file_path = ''
@@ -22,6 +20,9 @@ class ui:
         self.choosefile_button = tk.Button(self.window, text='Choose File', command=self.open_file)
         self.choosefile_button.pack()
 
+        self.chooseoutput_button = tk.Button(self.window, text='Choose output folder', command=self.open_output_path)
+        self.chooseoutput_button.pack()
+
         self.confirm_button = tk.Button(self.window, text='confirm', command=self.show_confirm_text)
         self.confirm_button.pack()
 
@@ -33,6 +34,10 @@ class ui:
     def open_file(self):
         self.file_path = filedialog.askopenfilename()
         print(self.file_path)
+
+    def open_output_path(self):
+        self.write_file_path = filedialog.askdirectory() + "/output.txt"
+        print(self.write_file_path)
 
     def show_confirm_text(self):
         self.final_content = ''
@@ -48,9 +53,9 @@ class ui:
             self.final_content += f"{i}\n"
             self.final_content += '=' * 75
             self.final_content += '\n'
-        with open(write_file_path, 'w') as file: #Write it to a new file, and confirm this to the user
+        with open(self.write_file_path, 'w') as file: #Write it to a new file, and confirm this to the user
             file.write(self.final_content)
-            self.confirm_label.config(text=f"Your file has been succesfully split. You can find it under the name {write_file_path} in the minecraft-book-splitter folder!", fg="green")
+            self.confirm_label.config(text=f"Your file has been succesfully split. You can find it under the location {self.write_file_path}!", fg="green")
     
         
 ui()
