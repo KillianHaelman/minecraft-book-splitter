@@ -8,7 +8,7 @@ class ui:
         self.window = tk.Tk()
 
         self.window.geometry("800x500")
-        self.window.title = "Minecraft Book Splitter"
+        self.window.title("Minecraft Book Splitter")
 
 
         self.ui_title = tk.Label(self.window, text="Minecraft book splitter", font=('Old English Text MT', 30))
